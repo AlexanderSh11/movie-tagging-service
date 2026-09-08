@@ -1,0 +1,13 @@
+movie-tagging/
+.env
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+data/raw/*
+data/processed/*
+
+.vscode/
+.idea/
