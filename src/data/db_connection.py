@@ -1,22 +1,25 @@
 import os
+
 import pandas as pd
 import psycopg2
 from dotenv import load_dotenv
 
 load_dotenv()
 
+
 def get_connection():
     """Создание подключения к БД"""
     conn = psycopg2.connect(
-        host=os.getenv('DB_HOST', 'localhost'),
-        port=os.getenv('DB_PORT', '5432'),
-        database=os.getenv('DB_NAME'),
-        user=os.getenv('DB_USER'),
-        password=os.getenv('DB_PASSWORD'),
-        client_encoding='UTF8'
+        host=os.getenv("DB_HOST", "localhost"),
+        port=os.getenv("DB_PORT", "5432"),
+        database=os.getenv("DB_NAME"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        client_encoding="UTF8",
     )
-    
+
     return conn
+
 
 def load_movies():
     """Загрузка таблицы с фильмами"""
@@ -50,6 +53,7 @@ def load_movies():
 
     conn.close()
     return df
+
 
 if __name__ == "__main__":
     df = load_movies()
